@@ -21,7 +21,13 @@ fn main() {
     let tuple = ("a", 12);
     println!("{}", tuple.0);
 
-    //
+    // 配列
+    let season = ["春", "夏", "秋", "冬"];
+    println!("最初の季節 {}", season.first().unwrap());
+    println!("最後の季節 {}", season.last().unwrap());
+
+    // 配列外アクセス
+    // println!("out of bound {}", season[10])
 }
 
 

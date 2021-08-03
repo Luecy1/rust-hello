@@ -17,6 +17,12 @@ fn main() {
     let mut x = 10; // mutをつけると変更ができる
     x += 10;
     println!("{}", x);
+
+    // シャドーイング
+    let x = 10;
+    println!("{}", x);
+    let x = 10; // 同じ変数名を再定義できる
+    println!("{}", x);
 }
 
 fn string_length(s: &String) -> usize {

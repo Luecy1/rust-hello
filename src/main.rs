@@ -23,6 +23,15 @@ fn main() {
     println!("{}", x);
     let x = 10; // 同じ変数名を再定義できる
     println!("{}", x);
+
+    // スコープ
+    let x = 100;
+    println!("{}", x);  // 100
+    {
+        let x = 200;
+        println!("{}", x);  // 200
+    }
+    println!("{}", x);  // 100
 }
 
 fn string_length(s: &String) -> usize {

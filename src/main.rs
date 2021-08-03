@@ -37,3 +37,14 @@ fn main() {
 fn string_length(s: &String) -> usize {
     s.len()
 }
+
+fn test(x: i32) -> i32 {
+    let ans = if x < 0 {    // ifの式に()は不要、if自体は値を返す
+        0
+    } else if x > 100 {
+        100
+    } else {
+        x
+    };
+    ans
+}

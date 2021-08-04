@@ -38,4 +38,19 @@ pub fn main() {
 
     let s = format!("{} {} {}", "hello", "rust", "world2");
     println!("{}", s);
+
+    // 日本語の扱い
+    let ja = "あいうえお";
+    println!("{}", ja); // 普通にできる
+
+    // 実行時にエラー(1バイト目が区切り文字でないため)
+    // let part = &ja[0..1];
+    // println!("{}", part);
+
+    let s = "こんにちは rust コードの世界";
+    let hello = &s[0..15];
+    let world = &s[21..];
+    println!("{}", hello);
+    println!("{}", world);
+    println!("s length = {}", s.len()); // 17文字だが、39が表示
 }

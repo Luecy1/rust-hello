@@ -1,5 +1,4 @@
 pub fn main() {
-
     // 文字列の扱い
     let x = 'x';
     println!("{}", x);
@@ -9,28 +8,28 @@ pub fn main() {
     println!("{}", x);
 
     // 特殊文字
-    let moji = '\'';    // シングルクォート
+    let moji = '\''; // シングルクォート
     println!("{}", moji);
-    let moji = '\\';    // バックスラッシュ
+    let moji = '\\'; // バックスラッシュ
     println!("{}", moji);
-    let moji = '\n';    // 改行
+    let moji = '\n'; // 改行
     println!("{}", moji);
-    let moji = '\r';    // 復帰
+    let moji = '\r'; // 復帰
     println!("{}", moji);
-    let moji = '\t';    // タブ
+    let moji = '\t'; // タブ
     println!("{}", moji);
 
     // 文字列の一部を取り出す
     let s = "hello Rust world";
-    let hello = &s[0..5];   // hello
+    let hello = &s[0..5]; // hello
     println!("{}", hello);
-    let world = &s[11..];   // world
+    let world = &s[11..]; // world
     println!("{}", world);
     let length = s.len();
-    println!("{}", length);      // 16
+    println!("{}", length); // 16
 
     // 文字列の結合
-    let mut s = String::new();  // 空文字列を作る　変更可能のためmutをつける
+    let mut s = String::new(); // 空文字列を作る　変更可能のためmutをつける
     s.push_str("hello ");
     s.push_str("Rust ");
     s.push_str("world ");
@@ -53,4 +52,21 @@ pub fn main() {
     println!("{}", hello);
     println!("{}", world);
     println!("s length = {}", s.len()); // 17文字だが、39が表示
+
+    // 日本語文字列の連結
+    let mut s = String::new(); // 空文字列の追加
+    s.push_str("こんにちは");
+    s.push_str("rust ");
+    s.push_str("コードの世界");
+    println!("{}", s);
+
+    // format で連結
+    let s = format!("{} {} {}", "こんにちは", "rust", "コードの世界");
+    println!("{}", s);
+
+    // &strと$String型変換
+    let s = "こんにちはRust コードの世界".to_string();
+    println!("{}", s);
+    let s = String::from(s);
+    println!("{}", s);
 }

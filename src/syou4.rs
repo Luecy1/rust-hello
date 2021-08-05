@@ -69,4 +69,22 @@ pub fn main() {
     println!("{}", s);
     let s = String::from(s);
     println!("{}", s);
+
+    // 日本語文字列をスライスする
+    let s = "こんにちはRust 🐈 日本語";
+
+    // ベクターに変換する(可変の配列)
+    let mut v: Vec<char> = Vec::new();
+    for c in s.chars() {
+        v.push(c);
+    }
+    println!("{:?}", v);
+
+    // 8文字目から14文字目までを取得
+    let v = &v[8..15];
+    let mut s = String::new();
+    for c in v {
+        s.push(*c);
+    }
+    println!("{}", s);
 }

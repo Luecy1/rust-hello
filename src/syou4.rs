@@ -1,3 +1,4 @@
+
 pub fn main() {
     // 文字列の扱い
     let x = 'x';
@@ -87,4 +88,31 @@ pub fn main() {
         s.push(*c);
     }
     println!("{}", s);
+
+    // 文字列のスライス
+    let s = "Hello rust world !";
+    let a = &s[0..1];
+    println!("{}", a);
+
+    let a = &s[0..5];   // 先頭５文字
+    println!("{}", a);
+
+    // 0指定は省略できる
+    let a = &s[..5];
+    println!("{}", a);
+
+    // 道中文字を切り出す
+    let a = &s[6..10];   // 6文字から9文字目まで
+    println!("{}", a);
+
+    // 最後までスライス
+    let a = &s[11..];
+    println!("{}", a);
+
+    // 範囲外アクセスのため実行時にエラー
+    // let a = &s[0..30];
+
+    // 文字列全体をスライス（あまり意味はない）
+    let a = &s[..];
+    println!("{}", a);
 }

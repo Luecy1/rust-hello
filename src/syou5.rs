@@ -46,12 +46,16 @@ pub fn main() {
     println!("{}", return_value());
     str_param("hoge");
 
-    let v = vec![0, 1, 2, 34, 5];
+    let v = vec![0, 1, 2, 3, 4, 5];
     let sum = vec_param(&v);
     println!("sum = {}", sum);
 
     let renban = return_vec(5);
     println!("{:?}", renban);
+
+    let mut v = vec![0, 1, 2, 3, 4, 5];
+    vec_change(&mut v);
+    println!("{:?}", v);
 }
 
 fn add(a: i32, b: i32) -> i32 {
@@ -101,4 +105,12 @@ fn return_vec(max: i32) -> Vec<i32> {
         vec.push(i);
     }
     vec
+}
+
+// ベクターの中身を変更する関数
+fn vec_change(v: &mut Vec<i32>) {
+    println!("called vec_change");
+    for i in v {
+        *i = *i * 10;
+    }
 }

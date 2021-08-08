@@ -44,7 +44,14 @@ pub fn main() {
     one_param(1);
     two_param(2, 3);
     println!("{}", return_value());
-    str_param("hoge")
+    str_param("hoge");
+
+    let v = vec![0, 1, 2, 34, 5];
+    let sum = vec_param(&v);
+    println!("sum = {}", sum);
+
+    let renban = return_vec(5);
+    println!("{:?}", renban);
 }
 
 fn add(a: i32, b: i32) -> i32 {
@@ -74,4 +81,24 @@ fn return_value() -> i32 {
 // 文字列を受け取る関数
 fn str_param(s: &str) {
     println!("called {}", s);
+}
+
+// ベクターを受け取る関数
+fn vec_param(v: &Vec<i32>) -> i32 {
+    println!("vec_param");
+    let mut sum = 0;
+    for i in v {
+        sum += i;
+    }
+    sum
+}
+
+// ベクターを返す関数
+fn return_vec(max: i32) -> Vec<i32> {
+    println!("called vec_param");
+    let mut vec = Vec::new();
+    for i in 0..max {
+        vec.push(i);
+    }
+    vec
 }

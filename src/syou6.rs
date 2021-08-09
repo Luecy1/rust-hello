@@ -60,4 +60,17 @@ pub fn main() {
         }
         x += 1;
     }
+
+    // 型列挙の利用
+    let lang = LANG::JAPANESE;
+    println!("LANG::JAPANESE {:?}", lang);
+}
+
+// 列挙
+#[derive(Debug)]    // デバッグ表示を有効にする
+enum LANG {
+    JAPANESE,
+    ENGLISH,
+    CHINESE,
+    FRANCH,
 }

@@ -37,4 +37,27 @@ pub fn main() {
     for i in 0..10 {
         println!("{}", i);
     }
+
+    // 途中で先頭に戻る
+    for x in 0..10 {
+        if x % 2 == 0 {
+            continue;
+        }
+        println!("{}", x);
+    }
+
+    let mut x = 0;
+    while x < 10 {
+        println!("{}", x);
+        x += 1;
+    }
+
+    let mut x = 0;
+    // 無限ループ構文
+    loop {
+        if x > 10 {
+            break;
+        }
+        x += 1;
+    }
 }

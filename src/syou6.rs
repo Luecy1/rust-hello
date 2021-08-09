@@ -64,6 +64,30 @@ pub fn main() {
     // 型列挙の利用
     let lang = LANG::JAPANESE;
     println!("LANG::JAPANESE {:?}", lang);
+
+    // matchを使って分岐
+    let m = match lang {
+        LANG::JAPANESE => "日本語",
+        LANG::ENGLISH => "英語",
+        LANG::CHINESE => "中国語",
+        LANG::FRANCH => "フランス語",
+    };
+    println!("{}", m);
+
+    // _を使用
+    let m = match lang {
+        LANG::JAPANESE => "日本語",
+        _ => "日本語以外",
+    };
+    println!("{}", m);
+
+    // Optional
+    let x = Some(10);
+    let v = match x {
+        Some(i) => i,
+        None => 0
+    };
+    println!("{}", v);
 }
 
 // 列挙

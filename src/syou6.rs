@@ -88,6 +88,30 @@ pub fn main() {
         None => 0
     };
     println!("{}", v);
+
+    if let Some(i) = x {
+        // 値が存在した場合のみ実行
+        println!("if let {:?}", i);
+    }
+
+    // enum以外のmatch
+    let x = 4;
+    let m = match x {
+        1 => "one",
+        2 => "two",
+        3 => "three",
+        _ => "other"    // その他の_がないとコンパイルエラー
+    };
+    println!("{}", m);
+
+    // 範囲指定ができる
+    let x = 5;
+    let m = match x {
+        0..=5 => "５以下",
+        6..=10 => "6以上10以下",
+        _ => "10より大きい"
+    };
+    println!("{}", m);
 }
 
 // 列挙

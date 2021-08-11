@@ -17,10 +17,30 @@ pub fn main() {
     println!("{}", array.len());
 
     // 0で初期化する
-    let mut array: [u8; 16] = [0; 16];
+    let array: [u8; 16] = [0; 16];
     print!("0 init ->");
     for x in array {
         print!("{} ", x);
     }
-    println!()
+    println!();
+
+    // forの利用
+    let v = vec![1, 2, 3, 4, 5];
+    for x in v {
+        println!("{}", x);
+    }
+    // イテレータの利用
+    let v = vec![1, 2, 3, 4, 5];
+    for x in v.iter() {
+        println!("{}", x);
+    }
+
+    let mut p = v.iter();
+    println!("{:?}", p);
+    println!("p is {:?}", p.next());
+    println!("p is {:?}", p.next());
+    println!("p is {:?}", p.next());
+    println!("p is {:?}", p.next());
+    println!("p is {:?}", p.next());
+    println!("p is {:?}", p.next());    // 6回目はNone
 }

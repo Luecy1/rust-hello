@@ -1,3 +1,5 @@
+use std::option::Option::Some;
+
 pub fn main() {
     let array = [1, 2, 3, 4, 5];
     println!("{}", array[0]);
@@ -43,4 +45,10 @@ pub fn main() {
     println!("p is {:?}", p.next());
     println!("p is {:?}", p.next());
     println!("p is {:?}", p.next()); // 6回目はNone
+
+    // while + iter
+    let mut p = v.iter();
+    while let Some(x) = p.next() {
+        println!("{}", x);
+    }
 }

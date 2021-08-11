@@ -42,5 +42,5 @@ pub fn main() {
     println!("p is {:?}", p.next());
     println!("p is {:?}", p.next());
     println!("p is {:?}", p.next());
-    println!("p is {:?}", p.next());    // 6回目はNone
+    println!("p is {:?}", p.next()); // 6回目はNone
 }

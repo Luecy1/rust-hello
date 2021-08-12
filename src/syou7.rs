@@ -23,6 +23,24 @@ pub fn main() {
         print!("{} ", x);
     }
     println!();
+    let vector = vec![1, 2, 3, 4];
+    println!("{}", vector[0]);
+    println!("{:?}", vector.get(1));    // {:?}はデバッグ表記
+    println!("{}", vector.get(2).unwrap());
+
+    // Vectorの要素の増減
+    let mut vector: Vec<i32> = Vec::new();
+    println!("vector {:?}", vector);
+    vector.push(10);
+    vector.push(20);
+    vector.push(30);
+    vector.push(40);
+    println!("vector {:?}", vector);
+    // 要素の削除
+    println!("{:?}", vector.pop());
+    println!("{:?}", vector.pop());
+    println!("{:?}", vector.pop());
+    println!("vector {:?}", vector);
 
     // forの利用
     let v = vec![1, 2, 3, 4, 5];

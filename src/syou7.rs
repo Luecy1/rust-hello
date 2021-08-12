@@ -1,5 +1,3 @@
-use std::option::Option::Some;
-
 pub fn main() {
     let array = [1, 2, 3, 4, 5];
     println!("{}", array[0]);
@@ -51,4 +49,15 @@ pub fn main() {
     while let Some(x) = p.next() {
         println!("{}", x);
     }
+
+    // mapを使う
+    let v = vec![1, 2, 3, 4, 5];
+    let lst = v.iter().map(|x| x * 10);
+    for i in lst {
+        println!("i is {}", i);
+    }
+
+    v.iter().map(|x| x * 10).for_each(|x| {
+        println!("{:?}", x);
+    })
 }

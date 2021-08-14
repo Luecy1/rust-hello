@@ -47,6 +47,10 @@ pub fn main() {
     println!("R {:.2}", yellow.0);
     println!("G {:.2}", yellow.1);
     println!("B {:.2}", yellow.2);
+
+    // 構造体のサイズを調べる
+    println!("Person size is {}", std::mem::size_of::<Person>());
+    println!("Person size is {}", std::mem::size_of::<A>());
 }
 
 // 関数呼び出しで構造体を渡す
@@ -77,4 +81,8 @@ struct Person {
     name: String,
     age: i32,
     addr: String,
+}
+
+struct A {
+    id: i32,
 }

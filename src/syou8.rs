@@ -40,6 +40,13 @@ pub fn main() {
         println!("-------");
         print_person(person);
     }
+
+    // フィールド名がない構造体
+    struct Color(f32, f32, f32);
+    let yellow = Color(1.0, 1.0, 0.0);
+    println!("R {:.2}", yellow.0);
+    println!("G {:.2}", yellow.1);
+    println!("B {:.2}", yellow.2);
 }
 
 // 関数呼び出しで構造体を渡す

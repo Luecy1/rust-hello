@@ -51,6 +51,15 @@ pub fn main() {
     // 構造体のサイズを調べる
     println!("Person size is {}", std::mem::size_of::<Person>());
     println!("Person size is {}", std::mem::size_of::<A>());
+
+    // Personのメソッドを実行(引数なし)
+    person.print();
+
+    // Personのメソッドを実行(引数あり)
+    person.print_t(true);
+    person.print_t(false);
+
+    println!("{}", person.to_str());
 }
 
 // 関数呼び出しで構造体を渡す
@@ -81,6 +90,31 @@ struct Person {
     name: String,
     age: i32,
     addr: String,
+}
+
+// Personにメソッドを定義
+impl Person {
+    // 引数のないメソッド
+    fn print(&self) {   // &selfは自分自身を参照するが変更はしない
+        println!("Person.id {}", self.id);
+        println!("Person.name {}", self.name);
+        println!("Person.age {}", self.age);
+        println!("Person.addr {}", self.addr);
+    }
+
+    // 引数のあるメソッド
+    fn print_t(&self, private: bool) {
+        if private {
+            println!("id.name {}:{}", self.id, self.name);
+        } else {
+            println!("{}:{}:{}:{}", self.id, self.name, self.age, self.addr);
+        }
+    }
+
+    // 戻り値のあるメソッド
+    fn to_str(&self) -> String {
+        format!("{}:{}:{}:{}", self.id, self.name, self.age, self.addr)
+    }
 }
 
 struct A {

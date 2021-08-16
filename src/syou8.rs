@@ -70,6 +70,15 @@ pub fn main() {
     };
     person.add_age();
     person.print();
+
+    // new関数でPersonを作成
+    let mut new_person_list = Vec::<Person>::new();
+    new_person_list.push(Person::new("Tanaka", 20, "Tokyo"));
+    new_person_list.push(Person::new("Satou", 21, "Osaka"));
+    new_person_list.push(Person::new("Suzuki", 22, "Nagoya"));
+    for person in new_person_list {
+        person.print();
+    }
 }
 
 // 関数呼び出しで構造体を渡す
@@ -102,6 +111,8 @@ struct Person {
     addr: String,
 }
 
+static mut PERSON_ID: i32 = 0;
+
 // Personにメソッドを定義
 impl Person {
     // 引数のないメソッド
@@ -129,6 +140,22 @@ impl Person {
     // フィールドを変更するメソッド
     fn add_age(&mut self) {
         self.age += 1;
+    }
+
+    // newメソッドを作る
+    // RustはJavaみたいにnewがキーワードではない
+    fn new(name: &str, age: i32, addr: &str) -> Person {
+        let id = unsafe {   // グローバル変数を使うためunsafeで囲む
+            PERSON_ID += 1;
+            PERSON_ID
+        };
+
+        Person {
+            id,
+            name: name.to_string(),
+            age,
+            addr: addr.to_string(),
+        }
     }
 }
 

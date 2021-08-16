@@ -60,6 +60,16 @@ pub fn main() {
     person.print_t(false);
 
     println!("{}", person.to_str());
+
+    // フィールドを変更する関数の呼び出し
+    let mut person = Person {
+        id: 100,
+        name: String::from("tanaka"),
+        age: 50,
+        addr: String::from("Tokyo"),
+    };
+    person.add_age();
+    person.print();
 }
 
 // 関数呼び出しで構造体を渡す
@@ -114,6 +124,11 @@ impl Person {
     // 戻り値のあるメソッド
     fn to_str(&self) -> String {
         format!("{}:{}:{}:{}", self.id, self.name, self.age, self.addr)
+    }
+
+    // フィールドを変更するメソッド
+    fn add_age(&mut self) {
+        self.age += 1;
     }
 }
 

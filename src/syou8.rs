@@ -1,3 +1,8 @@
+use std::num::ParseIntError;
+
+// Resultの別名
+type Result<T> = std::result::Result<T, ParseIntError>;
+
 pub fn main() {
     // Personのインスタンス化
     let person = Person {
@@ -79,7 +84,49 @@ pub fn main() {
     for person in new_person_list {
         person.print();
     }
+
+    // Result型
+    let result = "100".parse::<i32>();
+    // Resultかた結果を取り出す
+    match result {
+        Ok(n) => {
+            println!("100 = {}", n);
+        }
+        Err(error) => {
+            println!("{}", error);
+        }
+    }
+    // 失敗するパターン
+    let result = "100a".parse::<i32>();
+    // Resultかた結果を取り出す
+    match result {
+        Ok(n) => {
+            println!("100 = {}", n);
+        }
+        Err(error) => {
+            println!("{}", error);
+        }
+    }
+    // 数値であることが保証できるとき
+    let result = "100".parse::<i32>();
+    println!("100 unwrap {}", result.unwrap());
+
+    let half = half_number("xxx");
+    match half {
+        Ok(half) => println!("{}", half),
+        Err(error) => println!("{}", error),
+    }
 }
+
+// エラーなのにunwrapを使用した場合
+// thread 'main' panicked at 'called `Result::unwrap()` on an `Err` value: ParseIntError { kind: InvalidDigit }', src/syou8.rs:117:22
+fn half_number(s: &str) -> Result<i32> {
+    match s.parse::<i32>() {
+        Ok(i) => Ok(i / 2), // Okでwrapする
+        Err(error) => Err(error)
+    }
+}
+
 
 // 関数呼び出しで構造体を渡す
 fn print_person(person: &Person) {

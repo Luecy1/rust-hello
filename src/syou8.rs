@@ -116,6 +116,30 @@ pub fn main() {
         Ok(half) => println!("{}", half),
         Err(error) => println!("{}", error),
     }
+
+    // コンピネータを使用した関数を呼び出す
+    let result = half_number_combinatory("1000");
+    // Resultかた結果を取り出す
+    match result {
+        Ok(n) => {
+            println!("1000 no half = {}", n);
+        }
+        Err(error) => {
+            println!("{}", error);
+        }
+    }
+
+    // エラー移譲を使用した関数を呼び出す
+    let result = half_number_error_transfer("XXXX");
+    // Resultかた結果を取り出す
+    match result {
+        Ok(n) => {
+            println!("1000 no half = {}", n);
+        }
+        Err(error) => {
+            println!("{}", error);
+        }
+    }
 }
 
 // エラーなのにunwrapを使用した場合
@@ -127,6 +151,17 @@ fn half_number(s: &str) -> Result<i32> {
     }
 }
 
+// コンピネータを使用した記載
+fn half_number_combinatory(s: &str) -> Result<i32> {
+    // Result型でmapが使える
+    s.parse::<i32>().map(|n| n / 2)
+}
+
+// エラー移譲を使用した記載
+fn half_number_error_transfer(s: &str) -> Result<i32> {
+    let n = s.parse::<i32>()?;  // 末尾に?があることでErrorだった場合、ここでエラー値がreturnされる
+    Ok(n / 2)
+}
 
 // 関数呼び出しで構造体を渡す
 fn print_person(person: &Person) {

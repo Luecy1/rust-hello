@@ -145,6 +145,14 @@ pub fn main() {
     // errorだった場合、"yokisinai atai"を表示してここで終了する。
     let n = "100".parse::<i32>().expect("yokisinai atai");
     println!("{}", n);
+
+    // main関数の戻り値をResultにできる
+    // fn main() -> Result<(), Box<dyn std::error::Error>> {
+    //     let path = "sample.txt";
+    //     let data = std::fs::read_to_string(path)?;
+    //     println!("{}", data);
+    //     Ok(())
+    // }
 }
 
 // エラーなのにunwrapを使用した場合

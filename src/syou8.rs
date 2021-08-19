@@ -140,6 +140,11 @@ pub fn main() {
             println!("{}", error);
         }
     }
+
+    // expectの利用
+    // errorだった場合、"yokisinai atai"を表示してここで終了する。
+    let n = "100".parse::<i32>().expect("yokisinai atai");
+    println!("{}", n);
 }
 
 // エラーなのにunwrapを使用した場合

@@ -1,5 +1,5 @@
-mod syou8;
+mod syou9;
 
 fn main() {
-    syou8::main()
+    syou9::main()
 }

@@ -18,11 +18,15 @@ pub fn main() {
     let cir = Circle {
         radius: 10.0,
     };
+
+    println!("{}", rect.calc_area());
+    println!("{}", tri.calc_area());
+    println!("{}", cir.calc_area());
 }
 
 // ジェネリクスを使った関数
 fn print<T>(a: &[T]) where T: std::fmt::Debug { // whereでトレイトを指定する
-    print("a is");
+    print!("a is");
     for x in a {
         print!("{:?}", x);
     }

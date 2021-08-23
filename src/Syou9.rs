@@ -22,6 +22,11 @@ pub fn main() {
     println!("{}", rect.calc_area());
     println!("{}", tri.calc_area());
     println!("{}", cir.calc_area());
+
+    println!("デフォルトメソッド");
+    println!("{} {}", rect.expr_str(), rect.calc_area());
+    println!("{} {}", tri.expr_str(), tri.calc_area());
+    println!("{} {}", cir.expr_str(), cir.calc_area());
 }
 
 // ジェネリクスを使った関数
@@ -52,6 +57,11 @@ struct Circle {
 
 trait CalcArea {
     fn calc_area(&self) -> f32;
+
+    // デフォルトメソッドを定義
+    fn expr_str(&self) -> String {
+        "幅 × 高さ = ".to_string()
+    }
 }
 
 impl CalcArea for Rectangle {
@@ -64,10 +74,18 @@ impl CalcArea for Triangle {
     fn calc_area(&self) -> f32 {
         self.width * self.height * 0.5
     }
+
+    fn expr_str(&self) -> String {
+        "底辺 × 高さ ÷ 2 = ".to_string()
+    }
 }
 
 impl CalcArea for Circle {
     fn calc_area(&self) -> f32 {
         self.radius * self.radius * 3.14
+    }
+
+    fn expr_str(&self) -> String {
+        "n ×　半径　×　半径 =".to_string()
     }
 }

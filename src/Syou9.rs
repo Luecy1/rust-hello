@@ -27,6 +27,11 @@ pub fn main() {
     println!("{} {}", rect.expr_str(), rect.calc_area());
     println!("{} {}", tri.expr_str(), tri.calc_area());
     println!("{} {}", cir.expr_str(), cir.calc_area());
+
+    // 既存の構造体の拡張
+    let s = String::from("1000");
+    let n = s.to_i();
+    println!("n is {}", n);
 }
 
 // ジェネリクスを使った関数
@@ -87,5 +92,19 @@ impl CalcArea for Circle {
 
     fn expr_str(&self) -> String {
         "n ×　半径　×　半径 =".to_string()
+    }
+}
+
+// 既存の構造体を拡張する
+trait ToNumber {
+    fn to_i(&self) -> i32;
+}
+
+impl ToNumber for String {
+    fn to_i(&self) -> i32 {
+        match self.parse::<i32>() {
+            Ok(n) => n,
+            Err(_) => 0,
+        }
     }
 }

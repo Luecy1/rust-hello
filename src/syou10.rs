@@ -30,6 +30,15 @@ pub fn main() {
     println!("a is {:?} : before add_age", a);
     add_age(&mut a);
     println!("a is {:?} : after add_age", a);
+
+    // 所有権を失った変数を参照するこどでエラーとなるコード
+    let a = Person { name: "masuda", age: 50 };
+    let mut x = a;
+    println!("x is {:?} before add_age", x);
+    add_age(&mut x);
+    println!("x is {:?} after add_age", x);
+    // add_age(&mut a); 所有権を失っているので参照するとエラーになる
+    // println!("a is {:?} after add_age", a);
 }
 
 // 借用する

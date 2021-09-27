@@ -55,6 +55,14 @@ pub fn main() {
     println!("x is {:?}", x);
     add_age(&mut x);
     println!("x is {:?}", x);
+
+    // 数値の例
+    let a = 100;
+    println!("a is {}", a);
+    let x = a;  // 値のコピー
+    println!("x is {}", x);
+    let y = a;  // 値のコピー
+    println!("y is {}", y);
 }
 
 // 借用する

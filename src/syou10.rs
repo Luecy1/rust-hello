@@ -39,6 +39,22 @@ pub fn main() {
     println!("x is {:?} after add_age", x);
     // add_age(&mut a); 所有権を失っているので参照するとエラーになる
     // println!("a is {:?} after add_age", a);
+
+    // 不変な変数aを可変な変数として参照することでエラーとなるコード
+    let a = Person { name: "masuda", age: 50 };
+    let mut x = &a;
+    println!("x is {:?}", x);
+    // x.age += 1; error[E0594]: cannot assign to `x.age` which is behind a `&` reference
+    // println!("x is {:?}", x);
+
+    // 可変の変数から可変の変数を参照することで正しくなるコード
+    let mut a = Person { name: "masuda", age: 50 };
+    let mut x = &mut a;
+    println!("x is {:?}", x);
+    x.age += 1;
+    println!("x is {:?}", x);
+    add_age(&mut x);
+    println!("x is {:?}", x);
 }
 
 // 借用する

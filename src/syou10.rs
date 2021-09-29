@@ -63,6 +63,22 @@ pub fn main() {
     println!("x is {}", x);
     let y = a;  // 値のコピー
     println!("y is {}", y);
+
+    // ベクタと文字列の結合
+    let a = vec!["one", "two", "three"];
+    println!("a[] is {:?}", a);
+    let x = a;
+    println!("x[] is {:?}", x);
+    // 所有権がないためyに代入できない
+    // let y = a;
+    // println!("y[] is {:?}" , x);
+
+    // 参照を渡すことでaが再度使用できる
+    let a = vec!["one", "two", "three"];
+    println!("a[] is {:?}", a);
+    let x = &a;
+    println!("x[] is {:?}", x);
+    println!("a[] is {:?}", a);
 }
 
 // 借用する
